@@ -13,17 +13,20 @@ const slides = [
         "tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
     },
     {
-        "image":"./assets/images/slideshow/slide4.png", // index = 3
+        "image":"./assets/images/slideshow/slide4.jpg", // index = 3
         "tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
     }
 ];
+
 let index = 0;
+
 const arrow_right=document.getElementById("arrow_right");
-const arrow_left=document.getElementById("arrow_left");
 const banner_img=document.getElementById("banner_img");
+
 arrow_right.addEventListener("click", function () {
     console.log(slides[2]);
     console.log(index);
+
     if (index !== (slides.length -1)) { // si l'index est différent de la longueur de slides (4) - 1 alors j'augmente l'index de 1
         index++; // index = index +1
     } else {
