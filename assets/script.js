@@ -48,6 +48,26 @@ let i = 0
 
 arrow_left.addEventListener("click", () => {
     console.log("J'ai cliqué sur la flèche gauche")
+
+    let dot1 = document.querySelector(".dot_selected")
+    dot1.classList.remove("dot_selected")
+    dot1.classList.add("dot")
+
+    let dots = document.querySelectorAll(".dot")
+        console.log(dots)
+        if(i===0){
+            i=3
+        }
+        else(i--)
+    dots[i].classList.add("dot_selected")
+
+    let banner = document.querySelector(".banner-img")
+    banner.src = "assets/images/slideshow/"+slides[i].image
+        console.log(slides[i].image)
+
+    let text = document.querySelector("#banner p")
+    text.innerHTML = slides[i].tagLine;
+        console.log(text)
 })
 
 arrow_right.addEventListener("click", () => {
@@ -67,7 +87,10 @@ arrow_right.addEventListener("click", () => {
     let banner = document.querySelector(".banner-img")
     banner.src = "assets/images/slideshow/"+slides[i].image
         console.log(slides[i].image)
-    
+
+    let text = document.querySelector("#banner p")
+    text.innerHTML = slides[i].tagLine;
+        console.log(text)
 })
 
 
