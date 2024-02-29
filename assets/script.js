@@ -1,36 +1,75 @@
-
 const slides = [
-    {
-        "image":"./assets/images/slideshow/slide1.jpg", // index = 0
-        "tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
-    },
-    {
-        "image":"./assets/images/slideshow/slide2.jpg", // index = 1
-        "tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-    },
-    {
-        "image":"./assets/images/slideshow/slide3.jpg", // index = 2
-        "tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
-    },
-    {
-        "image":"./assets/images/slideshow/slide4.jpg", // index = 3
-        "tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-    }
-];
+	{
+		"image":"slide1.jpg",
+		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
+	},
+	{
+		"image":"slide2.jpg",
+		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
+	},
+	{
+		"image":"slide3.jpg",
+		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
+	},
+	{
+		"image":"slide4.png",
+		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
+	}
+]
 
-let index = 0;
+let dot1 = document.createElement("div")
+let parentDot1 = document.querySelector(".dots");
+parentDot1.appendChild(dot1);
+dot1.classList.add("dot");
+dot1.classList.add("dot_selected");
 
-const arrow_right=document.getElementById("arrow_right");
-const banner_img=document.getElementById("banner_img");
+let dot2 = document.createElement("div")
+let parentDot2 = document.querySelector(".dots");
+parentDot2.appendChild(dot2);
+dot2.classList.add("dot")
 
-arrow_right.addEventListener("click", function () {
-    console.log(slides[2]);
-    console.log(index);
+let dot3 = document.createElement("div")
+let parentDot3 = document.querySelector(".dots");
+parentDot3.appendChild(dot3);
+dot3.classList.add("dot")
 
-    if (index !== (slides.length -1)) { // si l'index est différent de la longueur de slides (4) - 1 alors j'augmente l'index de 1
-        index++; // index = index +1
-    } else {
-        index = 0;
-    }
-    banner_img.src = slides[index].image;
-});
+let dot4 = document.createElement("div")
+let parentDot4 = document.querySelector(".dots");
+parentDot4.appendChild(dot4);
+dot4.classList.add("dot")
+
+let arrow_left = document.getElementById("arrow_left")
+    console.log(arrow_left)
+
+let arrow_right = document.getElementById("arrow_right")
+    console.log(arrow_right)
+
+let i = 0
+
+arrow_left.addEventListener("click", () => {
+    console.log("J'ai cliqué sur la flèche gauche")
+})
+
+arrow_right.addEventListener("click", () => {
+    console.log("J'ai cliqué sur la flèche droite")
+    let dot1 = document.querySelector(".dot_selected")
+    dot1.classList.remove("dot_selected")
+    dot1.classList.add("dot")
+
+    let dots = document.querySelectorAll(".dot")
+        console.log(dots)
+        if(i===3){
+            i=0
+        }
+        else(i++)
+    dots[i].classList.add("dot_selected")
+
+    let banner = document.querySelector(".banner-img")
+    banner.src = "assets/images/slideshow/"+slides[i].image
+        console.log(slides[i].image)
+    
+})
+
+
+
+
